@@ -1,9 +1,11 @@
-
+using System;
 class Journal
 {
     List<Entry> entries;
 
     List<string> prompts;
+
+    public string _prompt;
 
     public Journal()
     {
@@ -35,7 +37,7 @@ class Journal
 
     public string GetRandomPrompt()
     {
-        return "";
+        return "What are you grateful for?";
         
     }
 }
