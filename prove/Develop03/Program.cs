@@ -22,3 +22,5 @@ class Program
         Console.WriteLine("I hope you enjoyed this memorizing process and hopefully it worked!");
     }
 }
+
+//To exceed the requirements I did the stretch challenge and made my program randomly chose from the words that weren't already hidden.
