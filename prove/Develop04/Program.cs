@@ -1,48 +1,54 @@
 using System;
-
+using System.Collections.Generic;
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello");
- 
-        List<string> animationStrings = new List<string>();
-        animationStrings.Add("|");
-        animationStrings.Add("/");
-        animationStrings.Add("-");
-        animationStrings.Add("\\");
-        animationStrings.Add("|");
-        animationStrings.Add("/");
-        animationStrings.Add("-");
-        animationStrings.Add("\\");
-        animationStrings.Add("|");
-
-        int menuUserInput = 0;
-        List<string> menu = new List<string>
+        while(true)
         {
-            "Menu Options:",
-            "1. Start breathing activity",
-            "2. Start reflecting activity",
-            "3. Start listing activity",
-            "4. Quit",
-            "Select a choice from the menu: "
-        };
-
-        while (menuUserInput != 4)
-        {
-            foreach(string menuItem in menu)
+            int menuUserInput = 0;
+            List<string> menu = new List<string>
             {
-                Console.WriteLine(menuItem);
-            }
-            menuUserInput = int.Parse(Console.ReadLine());
-        };
-        
-        foreach (string s in animationStrings)
-        {
-            Console.Write(s);
-            Thread.Sleep(1000);
-            Console.Write("\b \b");
+                "Menu Options:",
+                "1. Start breathing activity",
+                "2. Start reflecting activity",
+                "3. Start listing activity",
+                "4. Quit",
+                "Select a choice from the menu: "
+            };
+
+            while (menuUserInput != 4)
+            {
+                foreach(string menuItem in menu)
+                {
+                    Console.WriteLine(menuItem);
+                }
+                menuUserInput = int.Parse(Console.ReadLine());
+
+                if (menuUserInput == 1)
+                {
+                    BreathingActivity breathingActivity = new BreathingActivity();
+                    breathingActivity.StartBreathingActivity();
+                }
+
+                else if (menuUserInput == 2)
+                {
+                    ReflectingActivity reflectingActivity = new ReflectingActivity();
+                    reflectingActivity.StartReflectionActivity();
+                }
+
+                else if (menuUserInput == 3)
+                {
+                    ListingActivity listingActivity = new ListingActivity();
+                    listingActivity.StartListingActivity();
+                }
+
+                else
+                {
+                    Console.WriteLine("Invalid response. Please try again. ");
+                    continue;
+                }
+            };
         }
-        Console.WriteLine("Done");
     }
 }

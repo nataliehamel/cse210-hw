@@ -3,35 +3,21 @@ public class BreathingActivity : Activity
 {
     public BreathingActivity(string name, string description, int duration) : base(name, description, duration)
     {
-        name = "Breathing Activity";
-        description ="This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.";
-        duration = 30; 
+      name = "Breathing Activity";
+      description = "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.";
+      duration = 20;
     }
-
-    public void breathIn()
+    public void StartBreathingActivity()
     {
-        Console.WriteLine("Breath In");
-        for (int i = 5; i > 0; i--)
+        DisplayStartMessage();
+        for (int i=0; i < 20; i += 2)
         {
-            Console.Write(i);
-            Thread.Sleep(1000);
-            Console.Write("\b \b");
-        }; 
-    }
+            Console.WriteLine("Breathe in... ");
+            Pause(1);
+            Console.WriteLine("Breathe out... ");
+            Pause(1);
+        }
 
-    public void breathOut()
-    {
-        Console.WriteLine("Breath Out");
-        for (int i = 5; i > 0; i--)
-        {
-            Console.Write(i);
-            Thread.Sleep(1000);
-            Console.Write("\b \b");
-        }; 
-    }
-
-    public displayEndMessage() : base(endMessage)
-    {
-        return endMessage;
+        DisplayEndMessage();
     }
 }

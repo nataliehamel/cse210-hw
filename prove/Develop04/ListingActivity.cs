@@ -2,6 +2,18 @@ using System;
 
 public class ListingActivity : Activity
 {
+    public string[] prompts =
+    {
+        "Who are people that you appreciate?",
+        "What are personal strengths of yours?",
+        "Who are people that you have helped this week?",
+        "When have you felt the Holy Ghost this month?",
+        "Who are some of your personal heroes?",
+        "Who do you look up to?",
+        "When have you served your family this month?",
+        "What do you do on Sundays to honor the Sabbath?"
+    };
+    
     public ListingActivity(string name, string description, int duration) : base(name, description, duration)
     {
         name = "Listing Activity";
@@ -9,15 +21,11 @@ public class ListingActivity : Activity
         duration = 50;
     }
 
-    //select and display random prompt 
-    //Who are people that you appreciate?
-    //What are personal strengths of yours?
-    //Who are people that you have helped this week?
-    //When have you felt the Holy Ghost this month?
-    //Who are some of your personal heroes?
-
-    public void count()
+    public void StartListingActivity()
     {
+        DisplayStartMessage();
+        Random random = new Random();
+        Console.WriteLine(prompts[random.Next(prompts.Length)]);
         Console.WriteLine("Begin thinking about your prompt.");
         for (int i = 5; i > 0; i--)
         {
@@ -25,21 +33,9 @@ public class ListingActivity : Activity
             Thread.Sleep(1000);
             Console.Write("\b \b");
             Console.WriteLine("List items");
-        }; 
-    }
-
-    public void createList()
-    {
-        //user writes a list
-    }
-
-    public void displayList()
-    {
-        return createList;
-    }
-
-    public displayEndMessage() : base(endMessage)
-    {
-        return endMessage;
+        };
+        Console.WriteLine();
+        Console.WriteLine($"Number of items listed: {GetDuration}");
+        DisplayEndMessage();
     }
 }
