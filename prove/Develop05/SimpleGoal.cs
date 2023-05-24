@@ -2,15 +2,14 @@ using System;
 
 public class SimpleGoal : Goal
 {
-    private int _points;
+   public SimpleGoal(string goalName, int points)
+   {
+    _goalName = goalName;
+    _points = points;
+   }
 
-    public SimpleGoal(string goalName, string recordEvent, bool isComplete, int points) : base (goalName, recordEvent, isComplete)
+    public override void MarkComplete()
     {
-        _points = points;
-    }
-
-    public override int GetScore()
-    {
-        return 1000;
+        Console.WriteLine($"Goal '{_goalName}' completed! You have earned {_points} points!" );
     }
 }

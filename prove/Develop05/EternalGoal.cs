@@ -2,15 +2,14 @@ using System;
 
 public class EternalGoal : Goal
 {
-    private int _points;
-
-    public EternalGoal(string goalName, string recordEvent, bool isComplete, int points) : base (goalName, recordEvent, isComplete)
+    public EternalGoal(string goalName, int points)
     {
+        _goalName = goalName;
         _points = points;
     }
 
-    public override int GetScore()
+    public override void MarkComplete()
     {
-        return 100;
+        Console.WriteLine($"Goal '{_goalName}' completed! You have earned {_points} points!" );
     }
 }
